@@ -52,6 +52,7 @@ object JsonUtil {
             configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false)
             configure(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS, false)
             configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
+            configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true)
             setSerializationInclusion(JsonInclude.Include.NON_ABSENT)
             registerModule(Jdk8Module())
             registerModule(JavaTimeModule())

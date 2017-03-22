@@ -3,7 +3,6 @@ package co.mailtarget.midtrans
 import co.mailtarget.midtrans.model.EnablePayment
 import co.mailtarget.midtrans.util.JsonUtil
 import org.junit.Test
-import org.junit.Assert.*
 
 /**
  *
