@@ -15,19 +15,15 @@ class GatewayConfig {
     val connectTimeout: Int
     val socketTimeout: Int
 
-    constructor(environment: SnapEnvironment, serverKey: String, clientKey: String, maxConnectionPoolSize: Int, proxyConfig: ProxyConfig?) {
-        this.environment = environment
-        this.serverKey = serverKey
-        this.clientKey = clientKey
-        this.maxConnectionPoolSize = maxConnectionPoolSize
-        this.proxyConfig = proxyConfig
-        this.connectTimeout = DEFAULT_CONNECT_TIMEOUT
-        this.socketTimeout = DEFAULT_SOCKET_TIMEOUT
-    }
+    constructor(environment: String, serverKey: String, clientKey: String, maxConnectionPoolSize: Int) :
+            this(environment, serverKey, clientKey, maxConnectionPoolSize, null)
 
-    constructor(environment: SnapEnvironment, serverKey: String, clientKey: String, maxConnectionPoolSize: Int,
+    constructor(environment: String, serverKey: String, clientKey: String, maxConnectionPoolSize: Int, proxyConfig: ProxyConfig?) :
+            this(environment, serverKey, clientKey, maxConnectionPoolSize, DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT, proxyConfig)
+
+    constructor(environment: String, serverKey: String, clientKey: String, maxConnectionPoolSize: Int,
                 connectTimeout: Int, socketTimeout: Int, proxyConfig: ProxyConfig?) {
-        this.environment = environment
+        this.environment = SnapEnvironment.valueOf(environment.toUpperCase())
         this.serverKey = serverKey
         this.clientKey = clientKey
         this.maxConnectionPoolSize = maxConnectionPoolSize

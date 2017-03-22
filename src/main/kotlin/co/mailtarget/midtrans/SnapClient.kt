@@ -26,21 +26,16 @@ import java.util.*
  * @author masasdani
  * @since 3/22/17
  */
-class SnapClient {
+class SnapClient(private val gatewayConfig: GatewayConfig) {
 
-    private val gatewayConfig: GatewayConfig
-    private val connectionManager: PoolingHttpClientConnectionManager
+    private val connectionManager: PoolingHttpClientConnectionManager = PoolingHttpClientConnectionManager()
     private val httpClient: CloseableHttpClient
 
-    constructor(gatewayConfig: GatewayConfig){
-        this.gatewayConfig = gatewayConfig
-        this.connectionManager = PoolingHttpClientConnectionManager()
-
+    init {
         if (connectionManager.maxTotal < gatewayConfig.maxConnectionPoolSize) {
             connectionManager.maxTotal = gatewayConfig.maxConnectionPoolSize
         }
         connectionManager.defaultMaxPerRoute = gatewayConfig.maxConnectionPoolSize
-
         httpClient = buildHttpClient()
     }
 
