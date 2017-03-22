@@ -13,5 +13,6 @@ enum class TransactionStatus(name: String) {
     CANCELLED("cancel"),
     DENIED("deny"),
     EXPIRED("expire"),
-    FAILED("failure")
+    FAILED("failure"),
+    SETTLEMENT("settlement")
 }
