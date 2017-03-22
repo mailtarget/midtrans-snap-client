@@ -47,6 +47,7 @@ object JsonUtil {
             dateFormat = SimpleDateFormat(DEFAULT_DATE_FORMAT)
             propertyNamingStrategy = PropertyNamingStrategy.SNAKE_CASE
             configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false)
+            configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true)
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false)
             configure(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS, false)

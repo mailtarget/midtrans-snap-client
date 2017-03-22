@@ -5,7 +5,7 @@ package co.mailtarget.midtrans.model
  * @author masasdani
  * @since 3/22/17
  */
-enum class TransactionStatus(name: String) {
+enum class TransactionStatus(val type: String) {
     AUTHORIZED("authorize"),
     CAPTURED("capture"),
     SETTLED("settlement"),
@@ -14,5 +14,9 @@ enum class TransactionStatus(name: String) {
     DENIED("deny"),
     EXPIRED("expire"),
     FAILED("failure"),
-    SETTLEMENT("settlement")
+    SETTLEMENT("settlement");
+
+    override fun toString(): String {
+        return type
+    }
 }

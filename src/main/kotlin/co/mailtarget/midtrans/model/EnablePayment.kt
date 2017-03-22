@@ -5,7 +5,7 @@ package co.mailtarget.midtrans.model
  * @author masasdani
  * @since 3/22/17
  */
-enum class EnablePayment(name: String) {
+enum class EnablePayment(val type: String) {
     CREDIT_CARD("credit_card"),
     MANDIRI_CLICKPAY("mandiri_clickpay"),
     CIMB_CLICKS("cimb_clicks"),
@@ -23,5 +23,9 @@ enum class EnablePayment(name: String) {
     OTHER_VA("other_va"),
     KIOSON("kioson"),
     INDOMARET("indomaret"),
-    GCI("gci")
+    GCI("gci");
+
+    override fun toString(): String {
+        return type
+    }
 }
