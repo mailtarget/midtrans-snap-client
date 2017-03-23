@@ -9,7 +9,7 @@ import java.util.*
  */
 class SnapRequest(var transactionDetails: TransactionDetails) {
     var itemDetails: List<TransactionItem>? = null
-    var enablePayments: List<EnablePayment>? = null
+    var enabledPayments: List<EnablePayment>? = null
     var customerDetails: CustomerDetails? = null
     var creditCard: CreditCard? = null
     var expiry: Expiry? = null
